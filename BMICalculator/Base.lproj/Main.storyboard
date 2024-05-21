@@ -88,13 +88,16 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Button"/>
                                 <connections>
-                                    <action selector="resultButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pXJ-69-fcF"/>
+                                    <action selector="randomButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="IP5-wX-sHq"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1JU-f5-xEd">
                                 <rect key="frame" x="20" y="495.33333333333326" width="333" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <connections>
+                                    <action selector="resultButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jLx-Kn-Hzd"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>

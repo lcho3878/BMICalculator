@@ -39,7 +39,7 @@ class MainViewController: UIViewController {
         
         mainImageView.image = UIImage(named: "image")
         
-        heightQuestionLabel.text = "키가 어떻게 되시나요?"
+        heightQuestionLabel.text = "키(cm)가 어떻게 되시나요?"
         heightQuestionLabel.font = .boldSystemFont(ofSize: 16)
         
         heightView.layer.cornerRadius = 10
@@ -48,7 +48,7 @@ class MainViewController: UIViewController {
         
         heightTextField.borderStyle = .none
         
-        weightQuestionLabel.text = "몸무게가 어떻게 되시나요?"
+        weightQuestionLabel.text = "몸무게(kg)가 어떻게 되시나요?"
         weightQuestionLabel.font = .boldSystemFont(ofSize: 16)
         
         weightView.layer.cornerRadius = 10
@@ -74,8 +74,11 @@ class MainViewController: UIViewController {
         present(alert, animated: true)
     }
     
-    private func calculateBMI(_ height: Int, _ weight: Int) -> Double {
-        return Double(height / weight)
+    private func calculateBMI(_ height: Int, _ weight: Int) -> String {
+        let h = Double(height)/100
+        let w = Double(weight)
+        let result = w / (h * h)
+        return String(format: "%.2f", result)
         
     }
     
@@ -91,6 +94,15 @@ class MainViewController: UIViewController {
     @IBAction func resultButtonClicked(_ sender: UIButton) {
         guard let height = Int(heightTextField.text!) else { return }
         guard let weight = Int(weightTextField.text!) else { return }
+        let bmi = calculateBMI(height, weight)
+        showAlert("BMI는 \(bmi)입니다")
+    }
+    
+    @IBAction func randomButtonClicked(_ sender: UIButton) {
+        let height = Int.random(in: 100...200)
+        let weight = Int.random(in: 50...100)
+        heightTextField.text = String(height)
+        weightTextField.text = String(weight)
         let bmi = calculateBMI(height, weight)
         showAlert("BMI는 \(bmi)입니다")
     }
