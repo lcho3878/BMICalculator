@@ -102,6 +102,7 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="1JU-f5-xEd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="4Zj-Uo-xcQ"/>
                             <constraint firstItem="Z8Y-DG-e1I" firstAttribute="width" secondItem="HaN-6F-oGM" secondAttribute="width" multiplier="0.8" id="5ne-3K-6U4"/>
@@ -132,6 +133,9 @@
                             <constraint firstItem="Pwn-sN-kEl" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="40" id="yNJ-2U-crW"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="1JU-f5-xEd" secondAttribute="trailing" constant="40" id="yRF-oe-JE0"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="vgY-Ky-zh5" appends="YES" id="f6c-SI-BbS"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="heightQuestionLabel" destination="Wx9-Fj-PhT" id="rEC-N3-XO6"/>
@@ -148,6 +152,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="vgY-Ky-zh5">
+                    <connections>
+                        <action selector="viewTapped:" destination="BYZ-38-t0r" id="8UJ-7v-iMx"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="54.198473282442748" y="-34.507042253521128"/>
         </scene>

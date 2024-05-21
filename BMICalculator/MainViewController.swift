@@ -47,6 +47,7 @@ class MainViewController: UIViewController {
         heightView.layer.borderWidth = 2
         
         heightTextField.borderStyle = .none
+        heightTextField.keyboardType = .numberPad
         
         weightQuestionLabel.text = "몸무게(kg)가 어떻게 되시나요?"
         weightQuestionLabel.font = .boldSystemFont(ofSize: 16)
@@ -56,6 +57,7 @@ class MainViewController: UIViewController {
         weightView.layer.borderWidth = 2
         
         weightTextField.borderStyle = .none
+        weightTextField.keyboardType = .numberPad
         
         randomButton.setTitle("랜덤으로 BMI 계산하기", for: .normal)
         randomButton.setTitleColor(.red, for: .normal)
@@ -92,6 +94,16 @@ class MainViewController: UIViewController {
     }
     
     @IBAction func resultButtonClicked(_ sender: UIButton) {
+        guard heightTextField.text != "" else {
+            showAlert("키가 입력되지 않았습니다.")
+            return
+        }
+        
+        guard weightTextField.text != "" else {
+            showAlert("몸무게가 입력되지 않았습니다.")
+            return
+        }
+        
         guard let height = Int(heightTextField.text!) else { return }
         guard let weight = Int(weightTextField.text!) else { return }
         let bmi = calculateBMI(height, weight)
@@ -107,6 +119,9 @@ class MainViewController: UIViewController {
         showAlert("BMI는 \(bmi)입니다")
     }
     
+    @IBAction func viewTapped(_ sender: UITapGestureRecognizer) {
+        view.endEditing(true)
+    }
     
 }
 
