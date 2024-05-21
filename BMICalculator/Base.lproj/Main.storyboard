@@ -68,18 +68,32 @@
                                 <rect key="frame" x="20" y="375.33333333333331" width="333" height="50"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zG0-l0-9Kt">
-                                        <rect key="frame" x="10" y="8" width="313" height="34"/>
+                                        <rect key="frame" x="10" y="8" width="273" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <connections>
                                             <action selector="textFieldChanged:" destination="BYZ-38-t0r" eventType="editingChanged" id="rCf-CI-mLw"/>
                                         </connections>
                                     </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uqB-WX-vkH">
+                                        <rect key="frame" x="283" y="0.0" width="50" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="uqB-WX-vkH" secondAttribute="height" id="XLh-pz-9SU"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain"/>
+                                        <connections>
+                                            <action selector="secretButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5XP-Ht-168"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="zG0-l0-9Kt" secondAttribute="trailing" constant="10" id="3SM-Xo-9FJ"/>
+                                    <constraint firstItem="uqB-WX-vkH" firstAttribute="height" secondItem="2O8-su-Nyk" secondAttribute="height" id="2hV-Hb-9Tr"/>
+                                    <constraint firstAttribute="trailing" secondItem="uqB-WX-vkH" secondAttribute="trailing" id="GBf-Wr-LQF"/>
                                     <constraint firstItem="zG0-l0-9Kt" firstAttribute="leading" secondItem="2O8-su-Nyk" secondAttribute="leading" constant="10" id="Kdw-Y3-Qd3"/>
+                                    <constraint firstItem="uqB-WX-vkH" firstAttribute="leading" secondItem="zG0-l0-9Kt" secondAttribute="trailing" id="LDW-ut-N6r"/>
+                                    <constraint firstItem="uqB-WX-vkH" firstAttribute="centerY" secondItem="2O8-su-Nyk" secondAttribute="centerY" id="WfX-dw-ebX"/>
                                     <constraint firstItem="zG0-l0-9Kt" firstAttribute="centerY" secondItem="2O8-su-Nyk" secondAttribute="centerY" id="tti-6k-91C"/>
                                 </constraints>
                             </view>
@@ -144,6 +158,7 @@
                         <outlet property="mainImageView" destination="Pwn-sN-kEl" id="N40-tr-9W9"/>
                         <outlet property="randomButton" destination="EaF-CD-uaH" id="SS8-to-34p"/>
                         <outlet property="resultButton" destination="1JU-f5-xEd" id="gtb-z2-0Vm"/>
+                        <outlet property="secretButton" destination="uqB-WX-vkH" id="Y6L-ry-sHa"/>
                         <outlet property="subTitleLabel" destination="Z8Y-DG-e1I" id="Fbr-Yh-wUs"/>
                         <outlet property="titleLabel" destination="HaN-6F-oGM" id="8nb-SU-1Zl"/>
                         <outlet property="weightQuestionLabel" destination="rK9-HB-KaL" id="Kwt-cf-eAb"/>

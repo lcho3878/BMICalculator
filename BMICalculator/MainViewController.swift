@@ -22,7 +22,9 @@ class MainViewController: UIViewController {
     
     @IBOutlet var randomButton: UIButton!
     @IBOutlet var resultButton: UIButton!
+    @IBOutlet var secretButton: UIButton!
     
+    private var isSecret: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,6 +68,9 @@ class MainViewController: UIViewController {
         resultButton.setTitleColor(.white, for: .normal)
         resultButton.backgroundColor = .purple
         resultButton.layer.cornerRadius = 10
+        
+        secretButton.setImage(UIImage(systemName: "eye"), for: .normal)
+        secretButton.tintColor = .black
         
     }
     
@@ -122,6 +127,15 @@ class MainViewController: UIViewController {
     @IBAction func viewTapped(_ sender: UITapGestureRecognizer) {
         view.endEditing(true)
     }
+    
+    @IBAction func secretButtonClicked(_ sender: UIButton) {
+        isSecret.toggle()
+        let imageName = isSecret ? "eye.slash" : "eye"
+        secretButton.setImage(UIImage(systemName: imageName), for: .normal)
+        weightTextField.isSecureTextEntry = isSecret
+        
+    }
+    
     
 }
 
