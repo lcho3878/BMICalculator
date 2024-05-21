@@ -66,6 +66,35 @@ class MainViewController: UIViewController {
         resultButton.layer.cornerRadius = 10
         
     }
-
+    
+    private func showAlert(_ message: String) {
+        let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+        let ok = UIAlertAction(title: "확인", style: .default)
+        alert.addAction(ok)
+        present(alert, animated: true)
+    }
+    
+    private func calculateBMI(_ height: Int, _ weight: Int) -> Double {
+        return Double(height / weight)
+        
+    }
+    
+    @IBAction func textFieldChanged(_ sender: UITextField) {
+        let input = sender.text!
+        guard input != "" else { return }
+        guard Int(input) != nil else {
+            showAlert("숫자만 입력해주세요")
+            sender.text?.popLast()
+            return }
+    }
+    
+    @IBAction func resultButtonClicked(_ sender: UIButton) {
+        guard let height = Int(heightTextField.text!) else { return }
+        guard let weight = Int(weightTextField.text!) else { return }
+        let bmi = calculateBMI(height, weight)
+        showAlert("BMI는 \(bmi)입니다")
+    }
+    
+    
 }
 
