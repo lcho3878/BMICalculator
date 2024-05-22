@@ -111,6 +111,12 @@ class MainViewController: UIViewController {
         
         guard let height = Int(heightTextField.text!) else { return }
         guard let weight = Int(weightTextField.text!) else { return }
+        
+        guard height != 0 else {
+            showAlert("올바른 키를 입력하세요.")
+            return
+        }
+        
         let bmi = calculateBMI(height, weight)
         showAlert("BMI는 \(bmi)입니다")
     }
