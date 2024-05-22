@@ -25,10 +25,23 @@ class MainViewController: UIViewController {
     @IBOutlet var secretButton: UIButton!
     
     private var isSecret: Bool = false
+    private var myHeight: Int = 0
+    private var myWeight: Int = -1
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadData()
         configureUI()
+    }
+    
+    private func loadData() {
+        myHeight = UserDefaults.standard.integer(forKey: "myHeight")
+        myWeight = UserDefaults.standard.integer(forKey: "myWeight")
+    }
+    
+    private func saveData() {
+        UserDefaults.standard.set(myHeight, forKey: "myHeight")
+        UserDefaults.standard.set(myWeight, forKey: "myWeight")
     }
 
     private func configureUI() {
@@ -50,9 +63,11 @@ class MainViewController: UIViewController {
         
         heightTextField.borderStyle = .none
         heightTextField.keyboardType = .numberPad
+        heightTextField.text = "\(myHeight)"
         
         weightQuestionLabel.text = "몸무게(kg)가 어떻게 되시나요?"
         weightQuestionLabel.font = .boldSystemFont(ofSize: 16)
+                
         
         weightView.layer.cornerRadius = 10
         weightView.layer.borderColor = UIColor.black.cgColor
@@ -60,6 +75,7 @@ class MainViewController: UIViewController {
         
         weightTextField.borderStyle = .none
         weightTextField.keyboardType = .numberPad
+        weightTextField.text = "\(myWeight)"
         
         randomButton.setTitle("랜덤으로 BMI 계산하기", for: .normal)
         randomButton.setTitleColor(.red, for: .normal)
@@ -117,7 +133,12 @@ class MainViewController: UIViewController {
             return
         }
         
-        let bmi = calculateBMI(height, weight)
+        myHeight = height
+        myWeight = weight
+        
+        saveData()
+        
+        let bmi = calculateBMI(myHeight, myWeight)
         showAlert("BMI는 \(bmi)입니다")
     }
     
